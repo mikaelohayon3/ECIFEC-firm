@@ -14,11 +14,23 @@ export default function MentionsLegalesPage() {
       {/* Header Section */}
       <Box
         sx={{
-          backgroundColor: 'primary.main',
+          background: 'linear-gradient(135deg, #043033 0%, #065a5f 50%, #043033 100%)',
           color: 'white',
-          py: { xs: 8, md: 10 },
+          py: { xs: 6, md: 8 },
           display: 'flex',
           alignItems: 'center',
+          position: 'relative',
+          overflow: 'hidden',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'radial-gradient(circle at 20% 50%, rgba(199, 179, 118, 0.1) 0%, transparent 50%)',
+            pointerEvents: 'none',
+          },
         }}
       >
         <Container maxWidth="lg">
@@ -27,6 +39,7 @@ export default function MentionsLegalesPage() {
             title="Mentions légales"
             description="Informations légales relatives au site internet du Cabinet ECIFEC."
             light
+            noMargin
           />
         </Container>
       </Box>
@@ -41,7 +54,7 @@ export default function MentionsLegalesPage() {
                 1. Identification de l'éditeur
               </Typography>
               <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
-                Le site internet ecifec.fr est édité par :
+                Le site internet ecifec.com est édité par :
               </Typography>
               <Box component="ul" sx={{ pl: 3, mt: 2 }}>
                 <Typography component="li" variant="body1" sx={{ color: 'text.secondary', mb: 1 }}>
@@ -64,10 +77,38 @@ export default function MentionsLegalesPage() {
 
             <Divider />
 
+            {/* Conception et développement du site */}
+            <Box>
+              <Typography variant="h5" sx={{ fontWeight: 700, mb: 2, color: 'primary.main' }}>
+                2. Conception et développement du site
+              </Typography>
+              <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8, mb: 2 }}>
+                Le site internet a été conçu et développé par :
+              </Typography>
+              <Box component="ul" sx={{ pl: 3 }}>
+                <Typography component="li" variant="body1" sx={{ color: 'text.secondary', mb: 1 }}>
+                  <strong>Développeur :</strong> Lior Tordjman
+                </Typography>
+                <Typography component="li" variant="body1" sx={{ color: 'text.secondary', mb: 1 }}>
+                  <strong>LinkedIn :</strong>{' '}
+                  <a
+                    href="https://www.linkedin.com/in/lior-tordjman/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: '#043033', textDecoration: 'underline' }}
+                  >
+                    https://www.linkedin.com/in/lior-tordjman/
+                  </a>
+                </Typography>
+              </Box>
+            </Box>
+
+            <Divider />
+
             {/* Inscription Ordre */}
             <Box>
               <Typography variant="h5" sx={{ fontWeight: 700, mb: 2, color: 'primary.main' }}>
-                2. Inscription à l'Ordre des Experts-Comptables
+                3. Inscription à l'Ordre des Experts-Comptables
               </Typography>
               <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
                 Cabinet d'expertise comptable inscrit au tableau de l'ordre du conseil régional de Paris Île-de-France.
@@ -79,10 +120,10 @@ export default function MentionsLegalesPage() {
             {/* Hébergement */}
             <Box>
               <Typography variant="h5" sx={{ fontWeight: 700, mb: 2, color: 'primary.main' }}>
-                3. Hébergement du site
+                4. Hébergement du site
               </Typography>
               <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
-                Le site ecifec.fr est hébergé par :
+                Le site ecifec.com est hébergé par :
               </Typography>
               <Box component="ul" sx={{ pl: 3, mt: 2 }}>
                 <Typography component="li" variant="body1" sx={{ color: 'text.secondary', mb: 1 }}>
@@ -102,7 +143,7 @@ export default function MentionsLegalesPage() {
             {/* Propriété intellectuelle */}
             <Box>
               <Typography variant="h5" sx={{ fontWeight: 700, mb: 2, color: 'primary.main' }}>
-                4. Propriété intellectuelle
+                5. Propriété intellectuelle
               </Typography>
               <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8, mb: 2 }}>
                 L'ensemble du contenu de ce site (textes, images, vidéos, logos, etc.) est la propriété
@@ -122,7 +163,7 @@ export default function MentionsLegalesPage() {
             {/* Responsabilité */}
             <Box>
               <Typography variant="h5" sx={{ fontWeight: 700, mb: 2, color: 'primary.main' }}>
-                5. Limitation de responsabilité
+                6. Limitation de responsabilité
               </Typography>
               <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8, mb: 2 }}>
                 Le Cabinet ECIFEC s'efforce d'assurer l'exactitude et la mise à jour des informations
@@ -140,10 +181,10 @@ export default function MentionsLegalesPage() {
             {/* Liens hypertextes */}
             <Box>
               <Typography variant="h5" sx={{ fontWeight: 700, mb: 2, color: 'primary.main' }}>
-                6. Liens hypertextes
+                7. Liens hypertextes
               </Typography>
               <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
-                Le site ecifec.fr peut contenir des liens hypertextes vers d'autres sites. Le Cabinet
+                Le site ecifec.com peut contenir des liens hypertextes vers d'autres sites. Le Cabinet
                 ECIFEC n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à
                 leur contenu.
               </Typography>
@@ -154,7 +195,7 @@ export default function MentionsLegalesPage() {
             {/* Droit applicable */}
             <Box>
               <Typography variant="h5" sx={{ fontWeight: 700, mb: 2, color: 'primary.main' }}>
-                7. Droit applicable
+                8. Droit applicable
               </Typography>
               <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
                 Les présentes mentions légales sont régies par le droit français. En cas de litige et
@@ -162,12 +203,13 @@ export default function MentionsLegalesPage() {
                 conformément aux règles de compétence en vigueur.
               </Typography>
             </Box>
+
           </Box>
 
           {/* Last Update */}
           <Box sx={{ mt: 6, pt: 4, borderTop: '1px solid', borderColor: 'divider' }}>
             <Typography variant="body2" sx={{ color: 'text.secondary', fontStyle: 'italic' }}>
-              Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}
+              Dernière mise à jour : 25/11/2025
             </Typography>
           </Box>
         </Container>

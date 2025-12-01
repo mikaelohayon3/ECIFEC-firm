@@ -15,11 +15,23 @@ export default function PolitiqueConfidentialitePage() {
       {/* Header Section */}
       <Box
         sx={{
-          backgroundColor: 'primary.main',
+          background: 'linear-gradient(135deg, #043033 0%, #065a5f 50%, #043033 100%)',
           color: 'white',
-          py: { xs: 8, md: 10 },
+          py: { xs: 6, md: 8 },
           display: 'flex',
           alignItems: 'center',
+          position: 'relative',
+          overflow: 'hidden',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'radial-gradient(circle at 20% 50%, rgba(199, 179, 118, 0.1) 0%, transparent 50%)',
+            pointerEvents: 'none',
+          },
         }}
       >
         <Container maxWidth="lg">
@@ -28,6 +40,7 @@ export default function PolitiqueConfidentialitePage() {
             title="Politique de confidentialité"
             description="Protection de vos données personnelles et respect du RGPD."
             light
+            noMargin
           />
         </Container>
       </Box>
@@ -286,7 +299,7 @@ export default function PolitiqueConfidentialitePage() {
           {/* Last Update */}
           <Box sx={{ mt: 6, pt: 4, borderTop: '1px solid', borderColor: 'divider' }}>
             <Typography variant="body2" sx={{ color: 'text.secondary', fontStyle: 'italic' }}>
-              Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}
+              Dernière mise à jour : 25/11/2025
             </Typography>
           </Box>
         </Container>

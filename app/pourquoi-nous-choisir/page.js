@@ -36,11 +36,23 @@ export default function WhyChooseUsPage() {
       {/* Header Section */}
       <Box
         sx={{
-          backgroundColor: 'primary.main',
+          background: 'linear-gradient(135deg, #043033 0%, #065a5f 50%, #043033 100%)',
           color: 'white',
           py: { xs: 6, md: 8 },
           display: 'flex',
           alignItems: 'center',
+          position: 'relative',
+          overflow: 'hidden',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'radial-gradient(circle at 20% 50%, rgba(199, 179, 118, 0.1) 0%, transparent 50%)',
+            pointerEvents: 'none',
+          },
         }}
       >
         <Container maxWidth="lg">

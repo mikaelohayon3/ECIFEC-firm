@@ -1,5 +1,6 @@
 'use client';
-import { Box, Container, Typography, Button, Grid } from '@mui/material';
+import { Box, Container, Typography, Button } from '@mui/material';
+import Grid2 from '@mui/material/Grid2';
 import Link from 'next/link';
 import Image from 'next/image';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -19,9 +20,9 @@ export default function Hero() {
       }}
     >
       <Container maxWidth="xl">
-        <Grid container spacing={4} alignItems="center">
+        <Grid2 container spacing={4} alignItems="center">
           {/* Left Content */}
-          <Grid item xs={12} md={6}>
+          <Grid2 size={{ xs: 12, md: 6 }}>
             <Box sx={{ pr: { md: 4 } }}>
               <FadeInSection delay={0} direction="right">
                 <Typography
@@ -129,10 +130,97 @@ export default function Hero() {
                 </Box>
               </FadeInSection>
             </Box>
-          </Grid>
+          </Grid2>
 
           {/* Right Images Section (Keobiz style) */}
-          <Grid item xs={12} md={6}>
+          <Grid2 size={{ xs: 12, md: 6 }}>
+            {/* Mobile Images - Keobiz Style Layout */}
+            <Box
+              sx={{
+                display: { xs: 'block', md: 'none' },
+                position: 'relative',
+                width: '100%',
+                height: 420,
+                mb: 2,
+              }}
+            >
+              {/* Top Left - Chef */}
+              <Box
+                sx={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '48%',
+                  height: 200,
+                  borderRadius: 3,
+                  border: '5px solid',
+                  borderColor: 'primary.main',
+                  overflow: 'hidden',
+                  zIndex: 2,
+                  boxShadow: '0 12px 32px rgba(4, 48, 51, 0.25)',
+                }}
+              >
+                <Image
+                  src="/images/accueil2.jpg"
+                  alt="Chef cuisinier"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  priority
+                />
+              </Box>
+
+              {/* Bottom Left - Construction worker */}
+              <Box
+                sx={{
+                  position: 'absolute',
+                  top: 220,
+                  left: 5,
+                  width: '48%',
+                  height: 190,
+                  borderRadius: 3,
+                  border: '5px solid',
+                  borderColor: 'primary.main',
+                  overflow: 'hidden',
+                  zIndex: 2,
+                  boxShadow: '0 12px 32px rgba(4, 48, 51, 0.25)',
+                }}
+              >
+                <Image
+                  src="/images/accueil1.jpg"
+                  alt="Artisan BTP"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  priority
+                />
+              </Box>
+
+              {/* Right - Professional (Largest and most prominent with gold border) */}
+              <Box
+                sx={{
+                  position: 'absolute',
+                  top: 60,
+                  right: 0,
+                  width: '48%',
+                  height: 280,
+                  borderRadius: 3,
+                  border: '6px solid',
+                  borderColor: 'secondary.main',
+                  overflow: 'hidden',
+                  zIndex: 3,
+                  boxShadow: '0 16px 48px rgba(199, 179, 118, 0.4)',
+                }}
+              >
+                <Image
+                  src="/images/accueil3.jpg"
+                  alt="Entrepreneur"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  priority
+                />
+              </Box>
+            </Box>
+
+            {/* Desktop Images - 3 separate images */}
             <Box
               sx={{
                 position: 'relative',
@@ -305,8 +393,8 @@ export default function Hero() {
                 }}
               />
             </Box>
-          </Grid>
-        </Grid>
+          </Grid2>
+        </Grid2>
       </Container>
     </Box>
   );
