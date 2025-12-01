@@ -19,7 +19,7 @@ import Image from 'next/image';
 import SectionTitle from '@/components/shared/SectionTitle';
 import CTASection from '@/components/shared/CTASection';
 import FadeInSection from '@/components/shared/FadeInSection';
-import PageHead from '@/components/shared/PageHead';
+
 import { SECTORS } from '@/lib/data/secteurs';
 import SectorIcon from '@/components/sectors/SectorIcon';
 
@@ -36,10 +36,7 @@ export default function SecteursPage() {
 
   return (
     <>
-      <PageHead
-        title="Nos Secteurs d'Activité - Cabinet ECIFEC | Expertise sectorielle"
-        description="Expertise comptable spécialisée par secteur : BTP & Artisanat, Commerce, Transport & Logistique, Professions libérales, Services B2B et B2C. Accompagnement adapté à votre métier."
-      />
+      
       {/* Header Section */}
       <Box
         sx={{

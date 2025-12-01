@@ -2,16 +2,13 @@
 import { Box, Container, Typography, Divider } from '@mui/material';
 import Link from 'next/link';
 import SectionTitle from '@/components/shared/SectionTitle';
-import PageHead from '@/components/shared/PageHead';
+
 import { CABINET_INFO } from '@/lib/data/navigation';
 
 export default function PolitiqueConfidentialitePage() {
   return (
     <>
-      <PageHead
-        title="Politique de Confidentialité - Cabinet ECIFEC"
-        description="Politique de confidentialité et protection des données personnelles du Cabinet ECIFEC. Conformité RGPD."
-      />
+      
       {/* Header Section */}
       <Box
         sx={{

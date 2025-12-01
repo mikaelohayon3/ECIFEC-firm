@@ -32,7 +32,6 @@ import EmailIcon from '@mui/icons-material/Email';
 import SectionTitle from '@/components/shared/SectionTitle';
 import CTASection from '@/components/shared/CTASection';
 import FadeInSection from '@/components/shared/FadeInSection';
-import PageHead from '@/components/shared/PageHead';
 import { FAQ_ITEMS, FAQ_CATEGORIES, FAQ_PROFILES } from '@/lib/data/faq';
 
 const iconMap = {
@@ -97,10 +96,6 @@ export default function FAQPage() {
 
   return (
     <>
-      <PageHead
-        title="FAQ - Questions fréquentes | Cabinet ECIFEC"
-        description="Toutes les réponses à vos questions sur la création d'entreprise, la comptabilité, la fiscalité, les charges sociales et nos services. Expert-comptable à Sarcelles."
-      />
       {/* Header Section */}
       <Box
         sx={{

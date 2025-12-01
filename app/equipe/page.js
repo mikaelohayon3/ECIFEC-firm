@@ -7,7 +7,6 @@ import PeopleIcon from '@mui/icons-material/People';
 import SectionTitle from '@/components/shared/SectionTitle';
 import CTASection from '@/components/shared/CTASection';
 import FadeInSection from '@/components/shared/FadeInSection';
-import PageHead from '@/components/shared/PageHead';
 import { TEAM_MEMBERS } from '@/lib/data/team';
 import TeamPhilosophy from '@/components/team/TeamPhilosophy';
 import TeamCertifications from '@/components/team/TeamCertifications';
@@ -23,10 +22,6 @@ const iconMap = {
 export default function EquipePage() {
   return (
     <>
-      <PageHead
-        title="Notre Équipe - Cabinet ECIFEC | Experts-Comptables à Sarcelles"
-        description="Rencontrez l'équipe du Cabinet ECIFEC : experts-comptables diplômés, collaborateurs qualifiés. Plus de 35 ans d'expérience au service des entreprises du bassin parisien."
-      />
       {/* Header Section */}
       <Box
         sx={{

@@ -12,7 +12,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import SectionTitle from '@/components/shared/SectionTitle';
 import CTASection from '@/components/shared/CTASection';
 import FadeInSection from '@/components/shared/FadeInSection';
-import PageHead from '@/components/shared/PageHead';
+
 import OurGuarantees from '@/components/whychooseus/OurGuarantees';
 import OurTools from '@/components/whychooseus/OurTools';
 import { WHY_CHOOSE_US } from '@/lib/data/services';
@@ -29,10 +29,7 @@ const iconMap = {
 export default function WhyChooseUsPage() {
   return (
     <>
-      <PageHead
-        title="Pourquoi nous choisir - Cabinet ECIFEC | Nos avantages"
-        description="Découvrez pourquoi choisir le Cabinet ECIFEC : interlocuteur dédié, portail client en ligne, réactivité, outils digitaux, accompagnement personnalisé. Expert-comptable de confiance à Sarcelles."
-      />
+      
       {/* Header Section */}
       <Box
         sx={{

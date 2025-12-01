@@ -2,7 +2,6 @@
 import { Box, Container, Grid, Typography, Paper } from '@mui/material';
 import SectionTitle from '@/components/shared/SectionTitle';
 import FadeInSection from '@/components/shared/FadeInSection';
-import PageHead from '@/components/shared/PageHead';
 import ContactForm from '@/components/contact/ContactForm';
 import ContactInfo from '@/components/contact/ContactInfo';
 import GoogleMap from '@/components/contact/GoogleMap';
@@ -12,10 +11,6 @@ import ConfidentialityCommitment from '@/components/contact/ConfidentialityCommi
 export default function ContactPage() {
   return (
     <>
-      <PageHead
-        title="Contactez-nous - Cabinet ECIFEC | Expert-Comptable à Sarcelles"
-        description="Contactez le Cabinet ECIFEC à Sarcelles (95200). Téléphone : 01 34 04 35 05. Demandez un rendez-vous ou un devis gratuit. Horaires : Lundi-Jeudi 9h-18h, Vendredi 9h-17h."
-      />
       {/* Header Section */}
       <Box
         sx={{

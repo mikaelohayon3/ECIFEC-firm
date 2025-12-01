@@ -10,16 +10,13 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import HomeIcon from '@mui/icons-material/Home';
 import PhoneIcon from '@mui/icons-material/Phone';
 import Link from 'next/link';
-import PageHead from '@/components/shared/PageHead';
+
 import { CABINET_INFO } from '@/lib/data/navigation';
 
 export default function ConfirmationPage() {
   return (
     <>
-      <PageHead
-        title="Message envoyé - Cabinet ECIFEC"
-        description="Votre message a été envoyé avec succès au Cabinet ECIFEC. Nous vous répondrons dans les plus brefs délais."
-      />
+      
       <Container maxWidth="md" sx={{ py: 8 }}>
       <Paper
         elevation={3}

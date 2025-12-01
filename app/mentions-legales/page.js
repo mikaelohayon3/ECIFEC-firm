@@ -1,16 +1,13 @@
 'use client';
 import { Box, Container, Typography, Divider } from '@mui/material';
 import SectionTitle from '@/components/shared/SectionTitle';
-import PageHead from '@/components/shared/PageHead';
+
 import { CABINET_INFO } from '@/lib/data/navigation';
 
 export default function MentionsLegalesPage() {
   return (
     <>
-      <PageHead
-        title="Mentions Légales - Cabinet ECIFEC"
-        description="Mentions légales du Cabinet ECIFEC, expert-comptable à Sarcelles. Informations légales, éditeur du site, hébergement."
-      />
+      
       {/* Header Section */}
       <Box
         sx={{

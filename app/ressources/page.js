@@ -8,7 +8,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import SectionTitle from '@/components/shared/SectionTitle';
 import CTASection from '@/components/shared/CTASection';
 import FadeInSection from '@/components/shared/FadeInSection';
-import PageHead from '@/components/shared/PageHead';
+
 
 const RESOURCES = [
   {
@@ -40,10 +40,7 @@ const RESOURCES = [
 export default function RessourcesPage() {
   return (
     <>
-      <PageHead
-        title="Ressources - Cabinet ECIFEC | Outils et guides pratiques"
-        description="Accédez à nos ressources : calendrier fiscal et social 2026, simulateurs URSSAF, structure de service. Outils pratiques pour gérer votre entreprise."
-      />
+      
       {/* Header Section */}
       <Box
         sx={{

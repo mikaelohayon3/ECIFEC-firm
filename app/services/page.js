@@ -32,7 +32,7 @@ import OurMethodology from '@/components/services/OurMethodology';
 import DigitalTools from '@/components/services/DigitalTools';
 import FirstYearTimeline from '@/components/services/FirstYearTimeline';
 import ServicesFAQ from '@/components/services/ServicesFAQ';
-import PageHead from '@/components/shared/PageHead';
+
 import { SERVICES } from '@/lib/data/services';
 
 const iconMap = {
@@ -50,10 +50,7 @@ const iconMap = {
 export default function ServicesPage() {
   return (
     <>
-      <PageHead
-        title="Nos Services - Cabinet ECIFEC | Expert-Comptable à Sarcelles"
-        description="Découvrez tous nos services d'expertise comptable : création d'entreprise, gestion comptable, fiscale et sociale, audit, conseil, finance d'entreprise. Solutions complètes pour TPE et PME."
-      />
+      
       {/* Header Section */}
       <Box
         sx={{

@@ -2,15 +2,12 @@
 import { Box, Container, Typography, Divider } from '@mui/material';
 import SectionTitle from '@/components/shared/SectionTitle';
 import FadeInSection from '@/components/shared/FadeInSection';
-import PageHead from '@/components/shared/PageHead';
+
 
 export default function CGVPage() {
   return (
     <>
-      <PageHead
-        title="Conditions Générales de Vente - Cabinet ECIFEC"
-        description="Conditions Générales de Vente du Cabinet ECIFEC. Modalités de prestations, tarifs, engagement, responsabilités."
-      />
+      
       {/* Header Section */}
       <Box
         sx={{

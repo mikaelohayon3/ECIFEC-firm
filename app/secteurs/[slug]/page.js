@@ -26,6 +26,7 @@ import SectorIcon from '@/components/sectors/SectorIcon';
 import KeyRatios from '@/components/sectors/KeyRatios';
 import CommonPitfalls from '@/components/sectors/CommonPitfalls';
 import Optimizations from '@/components/sectors/Optimizations';
+import { generateSectorMetadata } from '@/lib/metadata';
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -35,13 +36,14 @@ export async function generateMetadata({ params }) {
     return {
       title: 'Secteur non trouvé - Cabinet ECIFEC',
       description: 'Le secteur demandé n\'existe pas.',
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
-  return {
-    title: `${sector.title} - Cabinet ECIFEC | Expertise comptable sectorielle`,
-    description: sector.description,
-  };
+  return generateSectorMetadata(sector);
 }
 
 export default async function SectorPage({ params }) {

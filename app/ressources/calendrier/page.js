@@ -2,7 +2,7 @@
 import { Box, Container, Typography, Grid, Paper, Alert } from '@mui/material';
 import SectionTitle from '@/components/shared/SectionTitle';
 import FadeInSection from '@/components/shared/FadeInSection';
-import PageHead from '@/components/shared/PageHead';
+
 
 export default function CalendrierPage() {
   // Fonction pour obtenir le nombre de jours dans un mois
@@ -184,10 +184,7 @@ export default function CalendrierPage() {
 
   return (
     <>
-      <PageHead
-        title="Calendrier Fiscal et Social 2026 - Cabinet ECIFEC"
-        description="Calendrier 2026 des échéances fiscales et sociales : TVA, IS, DSN, charges sociales, déclarations. Ne manquez aucune date importante pour votre entreprise."
-      />
+      
       {/* Header */}
       <Box
         sx={{

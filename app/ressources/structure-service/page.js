@@ -4,7 +4,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import FolderIcon from '@mui/icons-material/Folder';
 import SectionTitle from '@/components/shared/SectionTitle';
 import FadeInSection from '@/components/shared/FadeInSection';
-import PageHead from '@/components/shared/PageHead';
+
 
 export default function StructureServicePage() {
   const departments = [
@@ -41,10 +41,7 @@ export default function StructureServicePage() {
 
   return (
     <Box sx={{ bgcolor: 'background.default' }}>
-      <PageHead
-        title="Structure de Service - Cabinet ECIFEC"
-        description="Découvrez l'organisation complète de votre dossier au sein du Cabinet ECIFEC : juridique, fiscal, social, comptabilité et personnel."
-      />
+      
 
       {/* Hero Section */}
       <Box

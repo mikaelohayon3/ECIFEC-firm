@@ -20,6 +20,7 @@ import ServiceProcess from '@/components/services/ServiceProcess';
 import ServiceFAQ from '@/components/services/ServiceFAQ';
 import { SERVICES } from '@/lib/data/services';
 import ServiceIcon from '@/components/services/ServiceIcon';
+import { generateServiceMetadata } from '@/lib/metadata';
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -29,13 +30,14 @@ export async function generateMetadata({ params }) {
     return {
       title: 'Service non trouvé - Cabinet ECIFEC',
       description: 'Le service demandé n\'existe pas.',
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
-  return {
-    title: `${service.title} - Cabinet ECIFEC | Expert-Comptable à Sarcelles`,
-    description: service.description,
-  };
+  return generateServiceMetadata(service);
 }
 
 export default async function ServicePage({ params }) {

@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Box, Container, Typography, Grid, Card, CardContent, Tab, Tabs, Alert } from '@mui/material';
 import CalculateIcon from '@mui/icons-material/Calculate';
-import PageHead from '@/components/shared/PageHead';
+
 
 export default function SimulateursPage() {
   const [currentTab, setCurrentTab] = useState(0);
@@ -41,10 +41,7 @@ export default function SimulateursPage() {
 
   return (
     <Box sx={{ bgcolor: 'background.default' }}>
-      <PageHead
-        title="Simulateurs URSSAF - Cabinet ECIFEC"
-        description="Accédez aux simulateurs officiels URSSAF : auto-entrepreneur, indépendant, SASU, EURL, salaires. Estimez vos cotisations sociales facilement."
-      />
+      
       {/* Hero Section */}
       <Box
         sx={{
