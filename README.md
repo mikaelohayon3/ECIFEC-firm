@@ -328,3 +328,4 @@ Website: [https://ecifec.com](https://ecifec.com)
 - **2024-12** - Added XSS sanitization with DOMPurify
 
 Built with Next.js 15 and Material-UI v6
+
