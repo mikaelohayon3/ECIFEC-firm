@@ -61,21 +61,6 @@ export default function ContactForm() {
   });
 
   const onSubmit = async (data) => {
-    // Rate limiting avec localStorage (protection anti-spam côté client)
-    const lastSubmitTime = localStorage.getItem('lastContactSubmit');
-    const now = Date.now();
-    const COOLDOWN = 60000; // 1 minute entre chaque soumission
-
-    if (lastSubmitTime && (now - parseInt(lastSubmitTime)) < COOLDOWN) {
-      const remainingSeconds = Math.ceil((COOLDOWN - (now - parseInt(lastSubmitTime))) / 1000);
-      setSnackbar({
-        open: true,
-        message: `Veuillez attendre ${remainingSeconds} secondes avant de renvoyer le formulaire.`,
-        severity: 'warning'
-      });
-      return;
-    }
-
     setIsSubmitting(true);
 
     try {
@@ -109,11 +94,19 @@ export default function ContactForm() {
       const result = await response.json();
 
       if (!response.ok) {
+        // Gérer le rate limiting (429)
+        if (response.status === 429 && result.retryAfter) {
+          const minutes = Math.ceil(result.retryAfter / 60);
+          const seconds = result.retryAfter % 60;
+          const timeMsg = minutes > 0
+            ? `${minutes} minute${minutes > 1 ? 's' : ''}`
+            : `${seconds} seconde${seconds > 1 ? 's' : ''}`;
+
+          throw new Error(`Trop de tentatives. Veuillez patienter ${timeMsg} avant de réessayer.`);
+        }
+
         throw new Error(result.error || result.message || 'Erreur lors de l\'envoi');
       }
-
-      // Enregistrer le timestamp de soumission (rate limiting)
-      localStorage.setItem('lastContactSubmit', now.toString());
 
       // Rediriger vers la page de confirmation
       router.push('/contact/confirmation');
@@ -124,10 +117,10 @@ export default function ContactForm() {
 
       let errorMessage = 'Une erreur est survenue. Veuillez réessayer ou nous contacter par téléphone.';
 
-      if (error.message.includes('CSRF')) {
+      if (error.message.includes('CSRF') || error.message.includes('Invalid CSRF token')) {
         errorMessage = 'Erreur de sécurité. Veuillez rafraîchir la page et réessayer.';
-      } else if (error.message.includes('429')) {
-        errorMessage = 'Trop de tentatives. Veuillez patienter quelques minutes.';
+      } else if (error.message.includes('Trop de tentatives')) {
+        errorMessage = error.message;
       } else if (error.message) {
         errorMessage = error.message;
       }

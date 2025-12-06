@@ -1,21 +1,45 @@
 import { NextResponse } from 'next/server';
 import emailjs from '@emailjs/nodejs';
+import { checkRateLimit } from '@/lib/rateLimit';
 
 export async function POST(request) {
   try {
+    // Récupérer l'IP du client
+    const ip = request.headers.get('x-forwarded-for')?.split(',')[0].trim() ||
+               request.headers.get('x-real-ip') ||
+               'unknown';
+
+    // Rate limiting - Vérifier avant toute autre validation
+    const rateLimitResult = checkRateLimit(ip);
+
+    if (!rateLimitResult.allowed) {
+      return NextResponse.json(
+        {
+          error: 'Trop de tentatives. Veuillez patienter avant de réessayer.',
+          retryAfter: rateLimitResult.retryAfter
+        },
+        {
+          status: 429,
+          headers: {
+            'Retry-After': rateLimitResult.retryAfter.toString(),
+            'X-RateLimit-Limit': '5',
+            'X-RateLimit-Remaining': '0',
+            'X-RateLimit-Reset': new Date(rateLimitResult.resetTime).toISOString(),
+          }
+        }
+      );
+    }
+
     // CSRF Protection
     const csrfTokenFromCookie = request.cookies.get('csrf-token')?.value;
     const csrfTokenFromHeader = request.headers.get('X-CSRF-Token');
-    
+
     if (!csrfTokenFromCookie || csrfTokenFromCookie !== csrfTokenFromHeader) {
       return NextResponse.json(
         { error: 'Invalid CSRF token' },
         { status: 403 }
       );
     }
-    
-    // Rate limiting basic (IP-based)
-    const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown';
     
     // Parse request body
     const body = await request.json();
@@ -85,11 +109,21 @@ export async function POST(request) {
         }
       );
     }
-    
-    return NextResponse.json({ 
-      success: true,
-      message: 'Email sent successfully'
-    });
+
+    // Retourner succès avec headers de rate limiting
+    return NextResponse.json(
+      {
+        success: true,
+        message: 'Email sent successfully'
+      },
+      {
+        headers: {
+          'X-RateLimit-Limit': '5',
+          'X-RateLimit-Remaining': rateLimitResult.remaining.toString(),
+          'X-RateLimit-Reset': new Date(rateLimitResult.resetTime).toISOString(),
+        }
+      }
+    );
     
   } catch (error) {
     console.error('Contact form error:', error.message || error.text || error);
