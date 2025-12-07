@@ -52,7 +52,7 @@ const nextConfig = {
           /**
            * CSP: Protection XSS via liste blanche de sources autorisées
            * unsafe-inline/unsafe-eval requis pour Next.js et MUI
-           * Sources tierces: EmailJS (email), Google Fonts, Vercel Analytics
+           * Sources tierces: EmailJS (email), Google Fonts/Maps, Vercel Analytics
            */
           {
             key: 'Content-Security-Policy',
@@ -63,7 +63,7 @@ const nextConfig = {
               "img-src 'self' data: https: blob:",
               "font-src 'self' data: https://fonts.gstatic.com",
               "connect-src 'self' https://api.emailjs.com https://vitals.vercel-insights.com",
-              "frame-src 'self'",
+              "frame-src 'self' https://www.google.com",
               "object-src 'none'",
               "base-uri 'self'",
               "form-action 'self'",
